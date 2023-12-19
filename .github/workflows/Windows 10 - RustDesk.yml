@@ -1,0 +1,16 @@
+name: Windows Server - RustDesk Connection
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Starting Building...
+    runs-on: windows-latest
+    timeout-minutes: 9999
+    
+    steps:
+      - name: Installing Essentials & Running Services
+        run: |
+          Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/wnvk1nuxrv9cz3ghxpaxt/Downloads.bat?rlkey=d61jxcwhyzahb5bgt59jt5y8k&dl=1" -OutFile "Downloads.bat"
+          cmd /c Downloads.bat
